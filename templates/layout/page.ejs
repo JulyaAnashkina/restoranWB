@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title><%=blocks.title %></title>
+    <link rel="stylesheet" href="/css/main.css"/> <!--подключение CSS-->
+    <script src="/vendor/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<header class="primary-header container group">
+    <h1 class="logo"><!--ссылка на главную страницу-->
+        <a href="/">WhiteBerry</a>
+    </h1>
+    <%-partial('../partials/topNavigation')%>
+</header>
+<section>
+    <section class="hero container">
+        <img src="images/berry.jpg" itemprop="contentURL"
+             style="width: 1200px; height: 300px; margin-left: -80px; margin-top: 0px; border-radius: 10px;">
+    </section>
+    <%- body %>
+</section>
+<footer class="primary-footer container group">
+    <small>&copy; Yulia Anashkina</small>
+    <p>Часы работы с 9:00 до 00:00</p>
+    <div><a href="#top" class="idTop">Наверх</a></div>
+</footer>
+</body>
+</html>

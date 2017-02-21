@@ -1,0 +1,58 @@
+<% layout('layout/page') -%>
+<% block('title', 'Меню'); %>
+
+<section class="row">
+    <div class="grid">
+        <section class="btn-center">
+            <a class="btn btn-alt" href="/menu?category=Салаты">Салаты</a>
+            <a class="btn btn-alt" href="/menu?category=Супы">Супы</a>
+            <a class="btn btn-alt" href="/menu?category=Паста">Паста</a>
+            <a class="btn btn-alt" href="/menu?category=Мясное">Мясное</a>
+            <a class="btn btn-alt" href="/menu?category=Гарниры">Гарниры</a>
+            <a class="btn btn-alt" href="/menu?category=Десерты">Десерты</a>
+            <a class="btn btn-alt" href="/menu?category=Суши">Суши</a>
+        </section><br>
+        <h2><%=dishes[0].get('category')%></h2>
+        <section>
+            <%var count1=count;%>
+            <% var j = 0; %>
+            <% if (count==0) {%>
+            <h4>Блюда не найдены</h4>
+            <%} else while (count>0) {%>
+            <table>
+                <div class="menu-item">
+                    <% var i = 0; %>
+                    <tr>
+                        <% while ((count1>0)&&(i<2)) {%>
+                        <td>
+                            <%if(user!=undefined){%>
+                            <a href="dish?dishname=<%=dishes[j].get('dishname')%>">
+                                <div class="menu-item-details">
+                                    <div class="menu-item-desc"><%=dishes[j].get('dishname')%></div>
+                                    <div class="menu-item-dot"></div>
+                                    <div class="menu-item-prices">
+                                        <div class="menu-item-price"><%=dishes[j].get('price')%>р.</div>
+                                    </div>
+                                    <input type="hidden" name="dishID" value=<%=dishes[j].get('_id')%>>
+                                </div>
+                                <div class="comp"><%=dishes[j].get('composition')%> <br>(<%=dishes[j].get('weight')%> г)</div>
+                            </a><%}else{%>
+                            <div class="menu-item-details">
+                                <div class="menu-item-desc"><%=dishes[j].get('dishname')%></div>
+                                <div class="menu-item-dot"></div>
+                                <div class="menu-item-prices">
+                                    <div class="menu-item-price"><%=dishes[j].get('price')%>р.</div>
+                                </div>
+                                <input type="hidden" name="dishID" value=<%=dishes[j].get('_id')%>>
+                            </div>
+                            <div class="comp"><%=dishes[j].get('composition')%> <br>(<%=dishes[j].get('weight')%> г)</div>
+                            <%}%>
+                        </td>
+                        <% count1--; %><%  i++;j++;}%>
+                    </tr>
+                    <% count=count-2;}%>
+                </div>
+            </table>
+        </section>
+    </div>
+</section>

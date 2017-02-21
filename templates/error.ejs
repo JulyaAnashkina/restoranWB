@@ -1,0 +1,11 @@
+<% layout('layout/page') -%>
+<% block('title', error.message) -%>
+
+<section class="row">
+    <div class="grid">
+        <section class="col-1">
+            <h2>Извините, произошла ошибка.</h2>
+            <h2><%= error.message %></h2>
+        </section>
+    </div>
+</section>

@@ -1,0 +1,22 @@
+<tr>
+    <div class="menu-item">
+        <td class="box">
+        <div class="menu-item-details">
+            <div id="name" class="menu-item-desc"><%=dish.get('dishname')%></div>
+            <div class="menu-item-dot"></div>
+            <div class="menu-item-prices">
+                <div class="menu-item-price"><%=dish.get('price')%>р.</div>
+            </div>
+        </div>
+        <div class="comp">
+            <div id="count">Количество: <%=dish.get('count')%> порц.</div>
+            <div id="costI" class="comp">Итого: <%=dish.get('price')*dish.get('count')%> p.</div>
+        </div>
+        </td>
+        <td class="button">
+            <a href="cart/deleteDish?dishID=<%=dish.get('dishID')%>">
+                <button class="btn btn-alt">Удалить</button>
+            </a>
+        </td>
+    </div>
+</tr>

@@ -1,0 +1,37 @@
+<% layout('layout/page') -%>
+<% block('title', 'Блюдо'); %>
+
+<section class="row">
+    <div class="grid">
+        <section class="btn-center">
+            <a class="btn btn-alt" href="/menu?category=Салаты">Салаты</a>
+            <a class="btn btn-alt" href="/menu?category=Супы">Супы</a>
+            <a class="btn btn-alt" href="/menu?category=Паста">Паста</a>
+            <a class="btn btn-alt" href="/menu?category=Мясное">Мясное</a>
+            <a class="btn btn-alt" href="/menu?category=Гарниры">Гарниры</a>
+            <a class="btn btn-alt" href="/menu?category=Десерты">Десерты</a>
+            <a class="btn btn-alt" href="/menu?category=Суши">Суши</a>
+        </section><br>
+        <section>
+            <form name="dish" class="dish">
+                <div class="menu-item-details">
+                    <div class="menu-item-desc" id="name"><%=dish.get('dishname')%></div>
+                    <div class="menu-item-dot"></div>
+                    <div class="menu-item-prices">
+                        <div class="menu-item-price"><%=dish.get('price')%>р.</div>
+                    </div>
+                    <input type="hidden" name="dishID" value=<%=dish.get('_id')%>>
+                </div>
+                <div class="comp"><%=dish.get('composition')%> <br>(<%=dish.get('weight')%> г)</div>
+                <div class="comp">
+                    <%if(user){%>Количество порций:
+                    <input  name="count" type="number" min="0" max="50" step="1">
+                    <button class="btn btn-alt" type="submit" id="button">Добавить к заказу</button>
+                    <br><span class="help-block error"></span><%}%>
+                </div>
+            </form>
+        </section>
+    </div>
+</section>
+
+<script src="./javascripts/addOrder.js"></script>

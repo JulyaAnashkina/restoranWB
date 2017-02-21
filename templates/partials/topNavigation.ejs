@@ -1,0 +1,16 @@
+<nav class="navigation">
+  <ul>
+    <li><a href="/">Главная</a></li><!--
+   		 	--><li> <a href="/menu?category=Салаты">Меню</a></li><!--
+    		--><!--<li> <a href="/reserve">Бронь</a></li>--><!--<li> <a href="/custom">Заказы</a></li><!--
+			--><!--<li> <a href="/contacts">Контакты</a></li>--><!--
+			--><% if (user == null) { %><!--
+			--><li> <a href="/login">Войти</a> </li><!--
+			--><li> <a href="/registration">Регистрация</a> </li><!--
+			--><% } else { %><!--
+			--><li> <a href="/cart?userID=<%-user.get('_id')%>">Корзина</a> </li><!-- переименовать в cart
+			--><a href="" onclick="$('<form method=POST action=/exit></form>').submit();return false">Выйти</a><!--
+			--><br><span>Пользователь <%=user.get('username')%></span>
+      <% } %>
+  </ul>
+</nav>

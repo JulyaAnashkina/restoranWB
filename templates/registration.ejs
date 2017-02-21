@@ -1,0 +1,49 @@
+<% layout('layout/page') -%>
+<% block('title', 'Регистрация'); %>
+
+<section class="row">
+    <div class="grid">
+        <section >
+            <form name="registration-form" method="POST">
+                <fieldset class="account-info">
+                    <legend class="h">Регистрация пользователя</legend>
+                    <label>
+                        Имя
+                        <input class="widthinput" type="text" name="username" id="input-username" required>
+                    </label>
+                    <label>
+                        Фамилия
+                        <input class="widthinput" type="text" name="surname" id="input-surname" required>
+                    </label>
+                    <label>
+                        Телефон
+                        <input class="widthinput" type="tel" name="phone" id="input-phone" pattern="+7\(\d\d\d\) ?\d\d\d-\d\d-\d\d" placeholder="79053465789"/>
+                    </label>
+                    <label>
+                        Адрес
+                        <input class="widthinput" type="text" name="address" id="input-address" required>
+                    </label>
+                    <label>
+                        Email
+                        <input class="widthinput" type="email" name="email" placeholder="name@domain.com" id="input-email" required>
+                    </label>
+                    <label>
+                        Пароль
+                        <input class="widthinput" type="password" name="password" id="input-password" required>
+                    </label>
+                    <label>
+                        Повторите пароль
+                        <input class="widthinput" type="password" name="password2" id="input-password2" required>
+                    </label>
+                </fieldset>
+                <fieldset class="account-action">
+                    <input class="btn btn-alt" type="submit" name="submit" value="Регистрация">
+                    <br><span class="help-block error"></span>
+                </fieldset>
+            </form>
+        </section>
+    </div>
+</section>
+
+
+<script src="./javascripts/registration.js"></script>

@@ -1,0 +1,28 @@
+<% layout('layout/page') -%>
+<% block('title', 'Вход'); %>
+
+<section class="row">
+    <div class="grid">
+        <section >
+            <form name="login-form">
+                <fieldset class="account-info">
+                    <legend class="h">Вход в систему</legend>
+                    <label name="input-email">
+                        Логин
+                        <input name="email" type="text" class="widthinput" id="input-username" placeholder="Логин" required>
+                    </label>
+                    <label for="input-password">
+                        Пароль
+                        <input name="password" type="password" class="widthinput" id="input-password" placeholder="Пароль" required>
+                    </label>
+                </fieldset>
+                <fieldset class="account-action">
+                    <input type="submit" class="btn btn-alt"  value="Войти" ></input>
+                    <br><span class="help-block error"></span>
+                </fieldset>
+            </form>
+        </section>
+    </div>
+</section>
+
+<script src="./javascripts/login.js"></script>

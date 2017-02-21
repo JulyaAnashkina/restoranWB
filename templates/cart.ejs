@@ -1,0 +1,45 @@
+<% layout('layout/page') -%>
+<% block('title', 'Корзина'); %>
+
+<section class="row">
+    <div class="grid">
+        <% var count = dishes.length; %>
+        <h2>Оформление заказа</h2>
+        <section>
+            <div >
+                <div>
+                    <ul class="table">
+                        <% if (count==0) {%>
+                        <h4>Товаров в корзине нет</h4>
+                        <%} else { while (count>0) {%>
+                        <table>
+                        <%-partial('./partials/dishCart',{dish:dishes[dishes.length-count]})%>
+                        <% count = count-1; }%></table>
+                    </ul>
+                </div>
+                <section class="col-1-2">
+                <p>
+                        Общая сумма:
+                        <%var sum=0;%>
+                        <%var i = 0;%>
+                        <%while (i<dishes.length){%>
+                        <%sum=sum+dishes[i].get('price')*dishes[i].get('count'); i++;}%>
+                        <%=sum%>
+                        p.
+                </p>
+                </section><!--
+                --><section class="col-1-2">
+                    <form name="order" class="order">
+                        <div>
+                            <button class="btn btn-alt" type="submit" id="button">Заказать</button>
+                            <span class="help-block error"></span>
+                        </div>
+                    </form>
+                </section>
+                <%}%>
+            </div>
+        </section>
+    </div>
+</section>
+
+<script src="./javascripts/checkout.js"></script>
